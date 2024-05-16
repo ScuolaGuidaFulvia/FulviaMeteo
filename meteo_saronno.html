@@ -3,30 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <title>Meteo Saronno</title>
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
     <style>
         body {
             font-family: Arial, sans-serif;
+            margin: 0;
             display: flex;
             justify-content: center;
             align-items: center;
+            width: 100vw;
             height: 100vh;
             background: #eef;
         }
 
         #weather {
             text-align: center;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
         }
 
         iframe {
             border: 0;
-            width: 460px;
-            height: 597px;
+            width: 100vw;
+            height: 100vh;
         }
     </style>
 </head>
 <body>
     <div id="weather">
-        <h1>Meteo Saronno</h1>
         <iframe src="https://www.meteoblue.com/it/tempo/widget/three/saronno_italia_3167113?geoloc=fixed&nocurrent=0&noforecast=0&days=4&tempunit=CELSIUS&windunit=KILOMETER_PER_HOUR&layout=image"
                 frameborder="0" scrolling="NO" allowtransparency="true"
                 sandbox="allow-same-origin allow-scripts allow-popups allow-popups-to-escape-sandbox">
