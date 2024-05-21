@@ -25,10 +25,10 @@
 
         .iframe-container {
             position: absolute;
-            top: 55px; /* Adjust to move the frame down */
+            top: 0px; /* Start right at the top of the #weather div */
             left: -168px; /* Adjust to center the content horizontally */
             transform-origin: top left;
-            transform: scale(0.70); /* Increase this value to make the text larger */
+            transform: scale(0.70); /* Adjusted to make the text larger */
             width: 1000px; /* Original width of the iframe content */
             height: 1666px; /* Original height of the iframe content */
         }
@@ -46,10 +46,19 @@
             left: 10px;
             font-size: 10px;
         }
+
+        #clock {
+            position: absolute;
+            top: 10px;
+            right: 10px; /* Positioned at the top right corner of the weather div */
+            font-size: 36px; /* Large font size for visibility */
+            color: white; /* White color for the font */
+        }
     </style>
 </head>
 <body>
     <div id="weather">
+        <div id="clock"></div>
         <div class="iframe-container">
             <iframe src="https://www.meteoblue.com/it/tempo/widget/three/saronno_italia_3167113?geoloc=fixed&nocurrent=0&noforecast=0&days=4&tempunit=CELSIUS&windunit=KILOMETER_PER_HOUR&layout=image"
                     frameborder="0" scrolling="NO" allowtransparency="true"
@@ -62,5 +71,13 @@
                target="_blank" rel="noopener">meteoblue</a>
         </div>
     </div>
+    <script>
+        function updateClock() {
+            var now = new Date(); // current date
+            var time = now.toLocaleTimeString(); // get time as a string
+            document.getElementById('clock').innerHTML = time; // update clock
+        }
+        setInterval(updateClock, 1000); // update the clock every second
+    </script>
 </body>
 </html>
