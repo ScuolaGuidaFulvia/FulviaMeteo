@@ -31,30 +31,33 @@
             transform: scale(0.70);
             width: 1000px;
             height: 1666px;
+            overflow: hidden;
         }
 
         iframe {
             border: 0;
             width: 1000px;
-            height: 1666px;
+            height: 1666px; /* Regolato per tagliare il fondo */
         }
 
-        .meteoblue-link {
-            opacity: 0;
+        #cover-link {
             position: absolute;
-            bottom: 10px;
-            left: 10px;
-            font-size: 10px;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50px; /* Aumentato per una copertura più estesa */
+            background: #eef;
+            z-index: 15;
         }
 
         #clock {
             position: absolute;
-            top: 5px; /* Adjust this value as needed */
-            right: 5px; /* Positioned at the top right corner of the weather div */
-            font-size: 46px; /* Adjust font size as needed */
-            color: white; /* Change color as needed */
-            z-index: 10; /* Ensure it is on top */
-            background: rgba(0, 0, 0, 0.0); /* Semi-transparent background */
+            top: 5px;
+            right: 5px;
+            font-size: 40px;
+            color: white;
+            z-index: 10;
+            background: rgba(0, 0, 0, 0.0);
             padding: 5px;
             border-radius: 5px;
         }
@@ -69,19 +72,15 @@
                     sandbox="allow-same-origin allow-scripts allow-popups allow-popups-to-escape-sandbox">
             </iframe>
         </div>
-        <div class="meteoblue-link">
-            <!-- DO NOT REMOVE THIS LINK -->
-            <a href="https://www.meteoblue.com/it/tempo/settimana/saronno_italia_3167113?utm_source=weather_widget&utm_medium=linkus&utm_content=three&utm_campaign=Weather%2BWidget"
-               target="_blank" rel="noopener">meteoblue</a>
-        </div>
+        <div id="cover-link"></div>
     </div>
     <script>
         function updateClock() {
-            var now = new Date(); // current date
-            var time = now.toLocaleTimeString('it-IT', { hour: '2-digit', minute: '2-digit' }); // get time as a string
-            document.getElementById('clock').innerHTML = time; // update clock
+            var now = new Date();
+            var time = now.toLocaleTimeString('it-IT', { hour: '2-digit', minute: '2-digit' });
+            document.getElementById('clock').innerHTML = time;
         }
-        setInterval(updateClock, 1000); // update the clock every second
+        setInterval(updateClock, 1000);
     </script>
 </body>
 </html>
